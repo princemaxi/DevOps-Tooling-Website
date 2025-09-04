@@ -1,5 +1,42 @@
 #  🚀 DevOps Tooling Website Solution – Making DevOps Tools Easily Accessible
 
+# 📑 Table of Contents
+
+- [🚀 DevOps Tooling Website Solution – Making DevOps Tools Easily Accessible](#-devops-tooling-website-solution--making-devops-tools-easily-accessible)
+- [📑 Table of Contents](#-table-of-contents)
+  - [📌 Introduction](#-introduction)
+  - [🏗️ Project Architecture](#️-project-architecture)
+    - [Here’s the high-level design:](#heres-the-high-level-design)
+- [DEPLOYMENT STEPS](#deployment-steps)
+  - [🚀 Step 1: Prepare the NFS Server](#-step-1-prepare-the-nfs-server)
+    - [🔹 1. Spin up an EC2 instance](#-1-spin-up-an-ec2-instance)
+    - [🔹 2. Configure LVM for storage management](#-2-configure-lvm-for-storage-management)
+    - [🔹 3. Install and configure NFS server](#-3-install-and-configure-nfs-server)
+    - [🔹 4. Security group configuration](#-4-security-group-configuration)
+  - [🚀 Step 2: Configure the Database Server](#-step-2-configure-the-database-server)
+    - [🔹 1. Install MySQL Server](#-1-install-mysql-server)
+    - [🔹 2. Create the tooling database and user](#-2-create-the-tooling-database-and-user)
+    - [🔹 3. Configure MySQL for remote access](#-3-configure-mysql-for-remote-access)
+    - [🔹 4. Restrict access to web server subnet](#-4-restrict-access-to-web-server-subnet)
+  - [🔹 Step 3: Prepare the Web Servers](#-step-3-prepare-the-web-servers)
+    - [1️⃣ Configure NFS Client (on all 3 Web Servers)](#1️⃣-configure-nfs-client-on-all-3-web-servers)
+    - [2️⃣ Install Apache \& PHP](#2️⃣-install-apache--php)
+    - [3️⃣ Test File Sharing Across Web Servers](#3️⃣-test-file-sharing-across-web-servers)
+    - [4️⃣ Centralize Apache Logs on NFS](#4️⃣-centralize-apache-logs-on-nfs)
+    - [5️⃣ Deploy the Tooling Application](#5️⃣-deploy-the-tooling-application)
+    - [6️⃣ Connect Website to Database](#6️⃣-connect-website-to-database)
+    - [7️⃣ Create Admin User](#7️⃣-create-admin-user)
+    - [8️⃣ Test the Website](#8️⃣-test-the-website)
+- [🎯 Conclusion](#-conclusion)
+  - [🛠️ Troubleshooting Guide](#️-troubleshooting-guide)
+      - [1️⃣ Database Connection Issues](#1️⃣-database-connection-issues)
+      - [2️⃣ NFS Mount Errors](#2️⃣-nfs-mount-errors)
+      - [3️⃣ Apache Service Issues](#3️⃣-apache-service-issues)
+      - [4️⃣ PHP-MySQL Extension Errors](#4️⃣-php-mysql-extension-errors)
+      - [5️⃣ Schema Import Errors](#5️⃣-schema-import-errors)
+      - [6️⃣ Application Login Failure](#6️⃣-application-login-failure)
+
+
 ## 📌 Introduction
 
 In modern organizations, DevOps tools are scattered across multiple servers and environments. Engineers often waste time remembering credentials, IPs, and URLs for accessing these tools. To solve this problem, I implemented a Tooling Website Solution that centralizes access to DevOps tools within the corporate infrastructure.
@@ -462,7 +499,7 @@ Open your web server’s public IP in a browser.
 
 ---
 
-## 🎯 Conclusion
+# 🎯 Conclusion
 
 We’ve successfully deployed a 3-tier DevOps Tooling Website Solution on AWS:
 
